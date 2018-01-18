@@ -1,0 +1,36 @@
+body{
+    display: flex;
+}
+.wrapper{
+    border: 2px solid #000;
+    padding: 10px;
+    margin: 10px;
+    width: 35%;
+    margin-right: 10%;
+}
+p{
+    margin: 15px 0;
+}
+.answer{
+    width: 30px;
+    text-align: center;
+    outline: none;
+}
+input[type=button]{
+    margin: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: #fff;
+    background-color: red;
+    outline: none;
+}
+input[type=button]:hover{
+    background-color: greenyellow;
+}
+.addInput{
+    width: 45%;
+    margin: 10px;
+}
+
