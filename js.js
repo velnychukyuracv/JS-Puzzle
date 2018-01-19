@@ -50,20 +50,20 @@ settingsWrapper.appendChild(buttonsWrapper);
 buttonsWrapper.style.display="flex";
 buttonsWrapper.style.justifyContent="space-around";
 
-/*створюєм кнопку добавлення нового питання і відповіді*/
+/*створюєм кнопку Добавити пару (добавити питання і відповідь)*/
 var createQuestionAnswer=document.createElement('input');
 buttonsWrapper.appendChild(createQuestionAnswer);
 createQuestionAnswer.value="Добавить пару";
 createQuestionAnswer.type="button";
 createQuestionAnswer.className="addButton";
 
-/*створюєм кнопку добавлення нового питання і відповіді у кросворд*/
+/*створюєм кнопку Внести у кросворд */
 var addPuzzle=document.createElement('input');
 buttonsWrapper.appendChild(addPuzzle);
 addPuzzle.type="button";
 addPuzzle.value="Добавить у кросворд";
 
-/*створюєм кнопку перевірки правельності введеної відповіді у кросворді*/
+/*створюєм кнопку Перевірка відповіді (перевірки правельності введеної відповіді у кросворді)*/
 var validAnswer=addPuzzle.cloneNode(true);
 buttonsWrapper.appendChild(validAnswer);
 validAnswer.value="Перевірка відповіді";
@@ -74,7 +74,7 @@ settingsWrapper.appendChild(addsWrapper);
 
 
 /*подія реалізує показ полей для вводу нового питання і відповіді на нього після натискання кнопки Добавити пару*/
-var  count=0; /*счетчик для присвоєння унікального id питанню та відповіді*/
+var  countID=0; /*счетчик для присвоєння унікального id питанню та відповіді*/
 
 createQuestionAnswer.addEventListener("click", function(){
 
@@ -84,7 +84,7 @@ createQuestionAnswer.addEventListener("click", function(){
     newQuestion.placeholder="Введіть питання";
     newQuestion.type="text";
     newQuestion.className="addInput";
-    newQuestion.id = "newQuestion"+count;
+    newQuestion.id = "newQuestion"+countID;
 
     /*поле для вводу відповіді на питання*/
     var newAnswer=document.createElement('input');
@@ -92,9 +92,9 @@ createQuestionAnswer.addEventListener("click", function(){
     newAnswer.placeholder="Введіть відповідь";
     newAnswer.type="text";
     newAnswer.className="addInput";
-    newAnswer.id = "newAnswer"+count;
+    newAnswer.id = "newAnswer"+countID;
 
-    count=count+1;
+    countID=countID+1;
 });
 
 /*підрахунок кількості натискань на кнопку Добавити пару*/
