@@ -10,11 +10,15 @@ body{
 }
 p{
     margin: 15px 0;
+    text-transform:uppercase;
 }
 .answer{
-    width: 30px;
+    width:30px;
+    height: 25px;
     text-align: center;
     outline: none;
+    text-transform: lowercase;
+    font-size: 18px;
 }
 input[type=button]{
     margin: 5px;
@@ -32,5 +36,6 @@ input[type=button]:hover{
 .addInput{
     width: 45%;
     margin: 10px;
+    text-transform: lowercase;
 }
 

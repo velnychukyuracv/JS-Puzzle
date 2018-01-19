@@ -5,7 +5,7 @@ document.body.appendChild(puzzleWrapper);
 puzzleWrapper.className="wrapper";
 
 /*масив початкових значень для кросворда*/
-var questionsArray=['Столиця України?', 'Столиця Франції?'],
+var questionsArray=['столиця україни?', 'столиця франції?'],
     answersArray = ['київ','париж'];
 
 console.log(questionsArray);
@@ -111,7 +111,7 @@ window.onload = function () {
 };
 
 
-var step=0;
+var step=0; /*ЗМІННА В ЯКУ ТРЕБА ПЕРЕНЕСТИ КІЛЬКІСТЬ НАТИСКАНЬ З ВИЩЕ ВКАЗАНОЇ ПОДІЇ*/
 
 /*подія реалізує додавання нового питання і відповіді до масиву та побудова кросворду після натискання кнопки Добавити пару*/
 addPuzzle.addEventListener("click", function(){
@@ -131,7 +131,7 @@ addPuzzle.addEventListener("click", function(){
     /*очистка блока з кросвордом*/
     puzzleWrapper.innerHTML = '';
 
-    /*будуєм кросворд з новими значеннями мисивів з допомогою функції*/
+    /*будуєм кросворд з новими значеннями масивів з допомогою функції*/
     build();
 
     /*очистка блока введення нових питань і відповідей*/
