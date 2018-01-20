@@ -94,7 +94,7 @@ createQuestionAnswer.addEventListener("click", function(){
     newAnswer.className="addInput";
     newAnswer.id = "newAnswer"+countID;
 
-    countID=countID+1;
+    countID++;
 });
 
 /*підрахунок кількості натискань на кнопку Добавити пару*/
