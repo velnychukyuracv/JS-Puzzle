@@ -98,17 +98,11 @@ createQuestionAnswer.addEventListener("click", function(){
 });
 
 /*підрахунок кількості натискань на кнопку Добавити пару*/
-window.onload = function () {
-    var count=0;
-    document.body.onclick = function (e) {
-        e = e || event;
-        var target = e.target || e.srcElement;
-        if (target.className == 'addButton') {
-            count++;
-            console.log(count);
-        }
-    }
-};
+var count = 0;
+createQuestionAnswer.addEventListener('click', function(){
+    count++;
+    console.log(count);
+});
 
 
 var step=0; /*ЗМІННА В ЯКУ ТРЕБА ПЕРЕНЕСТИ КІЛЬКІСТЬ НАТИСКАНЬ З ВИЩЕ ВКАЗАНОЇ ПОДІЇ*/
