@@ -73,8 +73,8 @@ var addsWrapper=document.createElement('div');
 settingsWrapper.appendChild(addsWrapper);
 
 
-/*подія реалізує показ полей для вводу нового питання і відповіді на нього після натискання кнопки Добавити пару*/
-var  countID=0; /*счетчик для присвоєння унікального id питанню та відповіді*/
+/*подія реалізує показ полей для вводу нового питання і відповіді на нього після натискання кнопки Добавити пару, та підраховує кількість натискань на кнопку*/
+var  count=0; /*счетчик для присвоєння унікального id питанню та відповіді та підрахунку кількості кліків на кнопку*/
 
 createQuestionAnswer.addEventListener("click", function(){
 
@@ -84,7 +84,7 @@ createQuestionAnswer.addEventListener("click", function(){
     newQuestion.placeholder="Введіть питання";
     newQuestion.type="text";
     newQuestion.className="addInput";
-    newQuestion.id = "newQuestion"+countID;
+    newQuestion.id = "newQuestion"+count;
 
     /*поле для вводу відповіді на питання*/
     var newAnswer=document.createElement('input');
@@ -92,18 +92,11 @@ createQuestionAnswer.addEventListener("click", function(){
     newAnswer.placeholder="Введіть відповідь";
     newAnswer.type="text";
     newAnswer.className="addInput";
-    newAnswer.id = "newAnswer"+countID;
+    newAnswer.id = "newAnswer"+count;
 
-    countID++;
-});
-
-/*підрахунок кількості натискань на кнопку Добавити пару*/
-var count = 0;
-createQuestionAnswer.addEventListener('click', function(){
     count++;
     console.log(count);
 });
-
 
 var step=0; /*ЗМІННА В ЯКУ ТРЕБА ПЕРЕНЕСТИ КІЛЬКІСТЬ НАТИСКАНЬ З ВИЩЕ ВКАЗАНОЇ ПОДІЇ*/
 
