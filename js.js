@@ -1,8 +1,8 @@
 
 /*створюєм блок для кросворда*/
 var puzzleWrapper=document.createElement('div');
-document.body.appendChild(puzzleWrapper);
-puzzleWrapper.className="wrapper";
+  document.body.appendChild(puzzleWrapper);
+  puzzleWrapper.className="wrapper";
 
 /*масив початкових значень для кросворда*/
 var questionsArray=['столиця україни?', 'столиця франції?'],
@@ -35,43 +35,39 @@ function build(){
 
 
 /*будуєм кросворд з початкових значень з допомогою функції*/
-build();
-
+  build();
 
 /*створюєм блок для настройок кросворда*/
 var settingsWrapper=document.createElement('div');
-document.body.appendChild(settingsWrapper);
-settingsWrapper.className="wrapper";
-settingsWrapper.style.width="45%";
+  document.body.appendChild(settingsWrapper);
+  settingsWrapper.className="wrapper";
+  settingsWrapper.style.width="45%";
 
 /*створюєм блок для кнопок*/
 var buttonsWrapper=document.createElement('div');
-settingsWrapper.appendChild(buttonsWrapper);
-buttonsWrapper.style.display="flex";
-buttonsWrapper.style.justifyContent="space-around";
+  settingsWrapper.appendChild(buttonsWrapper);
+  buttonsWrapper.className="buttonsWrapper";
 
 /*створюєм кнопку Добавити пару (добавити питання і відповідь)*/
 var createQuestionAnswer=document.createElement('input');
-buttonsWrapper.appendChild(createQuestionAnswer);
-createQuestionAnswer.value="Добавить пару";
-createQuestionAnswer.type="button";
-createQuestionAnswer.className="addButton";
+  buttonsWrapper.appendChild(createQuestionAnswer);
+  createQuestionAnswer.value="Добавить пару";
+  createQuestionAnswer.type="button";
 
 /*створюєм кнопку Внести у кросворд */
-var addPuzzle=document.createElement('input');
-buttonsWrapper.appendChild(addPuzzle);
-addPuzzle.type="button";
-addPuzzle.value="Добавить у кросворд";
+var addPuzzle=createQuestionAnswer.cloneNode(true);
+  buttonsWrapper.appendChild(addPuzzle);
+  addPuzzle.value="Добавить у кросворд";
 
 /*створюєм кнопку Перевірка відповіді (перевірки правельності введеної відповіді у кросворді)*/
-var validAnswer=addPuzzle.cloneNode(true);
-buttonsWrapper.appendChild(validAnswer);
-validAnswer.value="Перевірка відповіді";
+var validAnswer=createQuestionAnswer.cloneNode(true);
+  buttonsWrapper.appendChild(validAnswer);
+  validAnswer.value="Перевірка відповіді";
 
 /*створюєм блок для введення нових питань і відповідей*/
 var addsWrapper=document.createElement('div');
-settingsWrapper.appendChild(addsWrapper);
-
+  settingsWrapper.appendChild(addsWrapper);
+  addsWrapper.className="addsWrapper";
 
 /*подія реалізує показ полей для вводу нового питання і відповіді на нього після натискання кнопки Добавити пару, та підраховує кількість натискань на кнопку*/
 var  count=0; /*счетчик для присвоєння унікального id питанню та відповіді та підрахунку кількості кліків на кнопку*/
@@ -80,19 +76,17 @@ createQuestionAnswer.addEventListener("click", function(){
 
     /*поле для вводу нового питання*/
     var newQuestion=document.createElement('input');
-    addsWrapper.appendChild(newQuestion);
-    newQuestion.placeholder="Введіть питання";
-    newQuestion.type="text";
-    newQuestion.className="addInput";
-    newQuestion.id = "newQuestion"+count;
+     addsWrapper.appendChild(newQuestion);
+     newQuestion.placeholder="Введіть питання";
+     newQuestion.type="text";
+     newQuestion.id = "newQuestion"+count;
 
     /*поле для вводу відповіді на питання*/
     var newAnswer=document.createElement('input');
-    addsWrapper.appendChild(newAnswer);
-    newAnswer.placeholder="Введіть відповідь";
-    newAnswer.type="text";
-    newAnswer.className="addInput";
-    newAnswer.id = "newAnswer"+count;
+     addsWrapper.appendChild(newAnswer);
+     newAnswer.placeholder="Введіть відповідь";
+     newAnswer.type="text";
+     newAnswer.id = "newAnswer"+count;
 
     count++;
     console.log(count);
@@ -106,13 +100,13 @@ addPuzzle.addEventListener("click", function(){
     for(var j=0; j<=step; j++) {
 
         /*додавння нового питання у масив питань*/
-        var quantityQuestion = document.getElementById("newQuestion"+j).value;
-        questionsArray.push(quantityQuestion);
+        var quantityQuestion = document.getElementById("newQuestion"+j);
+        questionsArray.push(quantityQuestion.value);
         console.log(questionsArray);
 
         /*додавння відповіді на питання у масив відповідей*/
-        var quantityAnswer = document.getElementById("newAnswer"+j).value;
-        answersArray.push(quantityAnswer);
+        var quantityAnswer = document.getElementById("newAnswer"+j);
+        answersArray.push(quantityAnswer.value);
         console.log(answersArray);
     };
     /*очистка блока з кросвордом*/
@@ -139,4 +133,16 @@ validAnswer.addEventListener("click", function(){
             }
         }
     }
-})
+});
+
+/*/!*заборона на введення недопустимих символів, дозволяє ввод тільки кирилиця нижнього регістру*!/
+function replace() {
+    this.value = this.value.replace(/[^а-я\s]+/g,'') ;
+} ;
+
+for(var i=0; i<questionsArray.length; i++){
+    var answer = answersArray[i];
+    for(var k=0; k<answer.length; k++){
+        document.getElementById("answerInput" + i + k).onkeyup = replace ;
+    }
+}*/

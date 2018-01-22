@@ -20,6 +20,10 @@ p{
     text-transform: lowercase;
     font-size: 18px;
 }
+.buttonsWrapper{
+    display: flex;
+    justify-content: space-around;
+}
 input[type=button]{
     margin: 5px;
     text-transform: uppercase;
@@ -33,7 +37,7 @@ input[type=button]{
 input[type=button]:hover{
     background-color: greenyellow;
 }
-.addInput{
+.addsWrapper > input{
     width: 45%;
     margin: 10px;
     text-transform: lowercase;
