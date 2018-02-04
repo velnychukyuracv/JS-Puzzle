@@ -70,10 +70,10 @@ var addsWrapper=document.createElement('div');
   addsWrapper.className="addsWrapper";
 
 /*подія реалізує показ полей для вводу нового питання і відповіді на нього після натискання кнопки Добавити пару, та підраховує кількість натискань на кнопку*/
-var  count=0; /*счетчик для присвоєння унікального id питанню та відповіді та підрахунку кількості кліків на кнопку*/
+ /*счетчик для присвоєння унікального id питанню та відповіді та підрахунку кількості кліків на кнопку*/
 
 createQuestionAnswer.addEventListener("click", function(){
-
+    var  count=0;
     /*поле для вводу нового питання*/
     var newQuestion=document.createElement('input');
      addsWrapper.appendChild(newQuestion);
@@ -89,10 +89,13 @@ createQuestionAnswer.addEventListener("click", function(){
      newAnswer.id = "newAnswer"+count;
 
     count++;
-    console.log(count);
+
+
+    return count;
 });
 
-var step=0; /*ЗМІННА В ЯКУ ТРЕБА ПЕРЕНЕСТИ КІЛЬКІСТЬ НАТИСКАНЬ З ВИЩЕ ВКАЗАНОЇ ПОДІЇ*/
+var step=count; /*ЗМІННА В ЯКУ ТРЕБА ПЕРЕНЕСТИ КІЛЬКІСТЬ НАТИСКАНЬ З ВИЩЕ ВКАЗАНОЇ ПОДІЇ*/
+
 
 /*подія реалізує додавання нового питання і відповіді до масиву та побудова кросворду після натискання кнопки Добавити пару*/
 addPuzzle.addEventListener("click", function(){
